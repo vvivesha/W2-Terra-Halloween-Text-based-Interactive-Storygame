@@ -1,4 +1,3 @@
-print("hi")
 import turtle
 import random
 import time
@@ -60,20 +59,78 @@ if dark_mode == "n":
 
 print("/===============\ ")
 seconds = 6
-for countdown_3 in range(6):
+for countdown_3 in range(5):
     time.sleep(1)
     seconds -= 1
-    print(seconds + "...")
+    print(str(seconds) + "...")
     print(" ")
 time.sleep(1)
 seconds -= 1
-print(seconds + "!!!")
+print(str(seconds) + "!!!")
 
-print()
-print("Welcome, fellow Hack Clubber.")
-time.sleep(1)
+#print("/--")
+#print("Welcome, fellow Hack Clubber.")
+#
 
+#these were used to test if the commits were working :)
+#print("thank you for helping me fix the issue!!")
+#print("                                     --/")
+#print("igone this; testing to see if commit button works and is out of rebase mode (vscode)")
+
+name = input("And what would your name be?  ")
+time.sleep(0.5)
 print("/--")
-print("thank you for helping me fix the issue!!")
-print("                                     --/")
-print("igone this; testing to see if commit button works and is out of rebase mode (vscode)")
+print("Happy Halloween, " + name + ".")
+print("                          --\ ")
+
+for gap in range(3):
+    print(" ")
+
+time.sleep(2)
+print("You are standing in front of your open closet.")
+print("You have 3 costumes to wear.")
+costume = input("Would you like to be a duck, bear, or a mage?  ")
+print("🦆 (duck)")
+print("🐻 (bear)")
+print("🧙 (mage)")
+
+if costume == "duck":
+    print("Quack! Now let\'s go outside to begin this spooky night.")
+if costume == "bear":
+    print("What an adorable bear costume!")
+if costume == "mage":
+    print("How magical!")
+
+#variables:
+weather_options = ["rainy", "stormy", "windy" ]
+weather = random.choice(weather_options)
+location = "home"
+time_range = [5, 400]
+
+#storyline 1:
+while location == "home":
+    loop = "incomplete"
+    print("Options: ")
+    print("1-- look outside from your bedroom window")
+    print("2-- find a candy bag")
+    time.sleep(1)
+    action = input("What will you do?")
+#actions:
+    if action == "1":
+        print("Oh! It\'s quite " + weather + " outside.")
+        time.sleep(0.5)
+        print("You still need a candy bag!")
+        time.sleep(0.2)
+        input("<Press enter to go back>")
+    if action == "2":
+        candy_bag_options = ["a brown sock", "a pumpkin-shaped bucket", "a large pillowcase", "a plastic shopping bag"]
+        time_spent = random.choice(time_range)
+        print("You search for...")
+        time.sleep(0.2)
+        print(str(time_spent) + " seconds, and find...")
+        time.sleep(0.5)
+        print(candy_bag_options)
+        input("<Press enter to continue>")
+        loop = "complete"
+    if action not in ["1", "2", "One", "one", "Two", "two"]:
+        print("Please choose what you will do next! (Type '1' or '2')")
