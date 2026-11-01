@@ -1,6 +1,8 @@
 import turtle
 import random
 import time
+#not sure why, but apparently I will need this next line of imported code stuff to make the slow-typing work out..? (Found through tutorial's comment section)
+from time import sleep
 print("    STARGAZERS")
 time.sleep(0.5)
 print("~~~~~~~~~~~~~~~~~")
@@ -88,24 +90,31 @@ for gap in range(3):
 
 time.sleep(2)
 print("You are standing in front of your open closet.")
-print("You have 3 costumes to wear.")
-costume = input("Would you like to be a duck, bear, or a mage?  ")
+def slow_print(text, delay):
+    for letter in text:
+        print(letter, flush = True, end = "")
+        sleep(delay)
+slow_print("You have...  THREE costumes to choose from.", 0.1)
+for gap in range(2):
+    print(" ")
 print("🦆 (duck)")
 print("🐻 (bear)")
 print("🧙 (mage)")
+time.sleep(0.2)
+costume = input("Would you like to be a duck, bear, or a mage?  ")
 
 if costume == "duck":
-    print("Quack! Now let\'s go outside to begin this spooky night.")
+    print("🦆 Quack! Now let\'s go outside to begin this spooky night.")
 if costume == "bear":
-    print("What an adorable bear costume!")
+    print("🐻 What an adorable bear costume!")
 if costume == "mage":
-    print("How magical!")
+    print("🧙 How magical!")
 
 #variables:
 weather_options = ["rainy", "stormy", "windy" ]
 weather = random.choice(weather_options)
 location = "home"
-time_range = [5, 400]
+time_range = range(5, 400)
 
 #storyline 1:
 while location == "home":
@@ -124,12 +133,10 @@ while location == "home":
         input("<Press enter to go back>")
     if action == "2":
         candy_bag_options = ["a brown sock", "a pumpkin-shaped bucket", "a large pillowcase", "a plastic shopping bag"]
+        candy_bag = random.choice(candy_bag_options)
         time_spent = random.choice(time_range)
-        print("You search for...")
-        time.sleep(0.2)
-        print(str(time_spent) + " seconds, and find...")
-        time.sleep(0.5)
-        print(candy_bag_options)
+        slow_print("You search for... " + str(time_spent) + " seconds, and find... " + candy_bag + ".", 0.05)
+        print(" ")
         input("<Press enter to continue>")
         loop = "complete"
     if action not in ["1", "2", "One", "one", "Two", "two"]:
