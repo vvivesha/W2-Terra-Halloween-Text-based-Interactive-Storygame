@@ -88,37 +88,69 @@ print("                          --\ ")
 for gap in range(3):
     print(" ")
 
-time.sleep(2)
-print("You are standing in front of your open closet.")
-def slow_print(text, delay):
-    for letter in text:
-        print(letter, flush = True, end = "")
-        sleep(delay)
-slow_print("You have...  THREE costumes to choose from.", 0.1)
-for gap in range(2):
-    print(" ")
-print("🦆 (duck)")
-print("🐻 (bear)")
-print("🧙 (mage)")
-time.sleep(0.2)
-costume = input("Would you like to be a duck, bear, or a mage?  ")
+satisfied = "false"
 
-if costume == "duck":
-    print("🦆 Quack! Now let\'s go outside to begin this spooky night.")
-if costume == "bear":
-    print("🐻 What an adorable bear costume!")
-if costume == "mage":
-    print("🧙 How magical!")
+while satisfied == "false":
+    time.sleep(2)
+    print("You are standing in front of your open closet.")
+    def slow_print(text, delay):
+        for letter in text:
+            print(letter, flush = True, end = "")
+            sleep(delay)
+    slow_print("You have...  THREE costumes to choose from.", 0.1)
+    for gap in range(2):
+        print(" ")
+    print("🦆 (duck)")
+    print("🐻 (bear)")
+    print("🧙 (mage)")
+    for gap in range(2):
+        print(" ")
+    time.sleep(0.2)
+    costume = input("Would you like to be a duck, bear, or a mage?  ")
+
+    if costume == "duck":
+        satisfied = "true"
+        print("🦆 Quack! Now let\'s go outside to begin this spooky night.")
+        break
+    if costume == "bear":
+        satisfied = "true"
+        print("🐻 What an adorable bear costume!")
+        break
+    if costume == "mage":
+        satisfied = "true"
+        print("🧙 How magical!")
+        break
+    else:
+        print("<Invalid costume option was requested. Please try again>")
+        satisfied = "false"
+
+if satisfied == "true":
+        slow_print("⊹₊˚  <moving on to stage 1>", 0.08)
+        print(" ")
+        time.sleep(0.1)
+
 
 #variables:
 weather_options = ["rainy", "stormy", "windy" ]
 weather = random.choice(weather_options)
 location = "home"
 time_range = range(5, 400)
+node = "incomplete"
 
 #storyline 1:
 while location == "home":
-    loop = "incomplete"
+    if node == "complete":
+        time.sleep(0.2)
+        print("You are able to continue to the next stage. You can still go back and explore the other options!")
+        input("<Press enter when ready to move on. Or, type   Q   to go back.>")
+        if input in ["Q", "q"]:
+            node = "incomplete"
+            if node == "incomplete":
+                continue
+        else:
+            print("I'm done here.")
+            node = "finished"
+            break
     print("Options: ")
     print("1-- look outside from your bedroom window")
     print("2-- find a candy bag")
@@ -138,6 +170,20 @@ while location == "home":
         slow_print("You search for... " + str(time_spent) + " seconds, and find... " + candy_bag + ".", 0.05)
         print(" ")
         input("<Press enter to continue>")
-        loop = "complete"
+        node = "complete"
     if action not in ["1", "2", "One", "one", "Two", "two"]:
         print("Please choose what you will do next! (Type '1' or '2')")
+while node == "finished":
+    slow_print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹", 0.3)
+    slow_print("Time passes... <moving on to stage 2>", 0.2)
+    slow_print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹", 0.3)
+    time.sleep(1)
+    break
+    skip_anim = input("<Press enter to skip the animation. Press Q to dismiss this message>")
+    if skip_anim == "Q":
+        print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹")
+        print("Time passes... <moving on to stage 2>", 0.2)
+        print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹")
+        break
+        
+
