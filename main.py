@@ -121,14 +121,23 @@ while satisfied == "false":
         print("🧙 How magical!")
         break
     else:
-        print("<Invalid costume option was requested. Please try again>")
         satisfied = "false"
+        for gap in range(2):
+            print(" ")
+        print("<Please wait until the typing animation has concluded before you start typing your request.")
+        time.sleep(1)
+        print("<Invalid costume option was requested. Please try again>")
+        for gap in range(2):
+            print(" ")
 
 if satisfied == "true":
-        slow_print("⊹₊˚  <moving on to stage 1>", 0.08)
+    for gap in range(3):
         print(" ")
-        time.sleep(0.1)
-
+    slow_print("⊹₊˚  <moving on to stage 1>", 0.08)
+    print(" ")
+    time.sleep(0.1)
+for gap in range(3):
+    print(" ")
 
 #variables:
 weather_options = ["rainy", "stormy", "windy" ]
@@ -136,14 +145,15 @@ weather = random.choice(weather_options)
 location = "home"
 time_range = range(5, 400)
 node = "incomplete"
+candy_bag_and_time_selected = "false"
 
 #storyline 1:
 while location == "home":
     if node == "complete":
         time.sleep(0.2)
         print("You are able to continue to the next stage. You can still go back and explore the other options!")
-        input("<Press enter when ready to move on. Or, type   Q   to go back.>")
-        if input in ["Q", "q"]:
+        return_to_node = input("<Press enter when ready to move on. Or, type   Q   to go back.>")
+        if return_to_node in ["Q", "q"]:
             node = "incomplete"
             if node == "incomplete":
                 continue
@@ -151,26 +161,39 @@ while location == "home":
             print("I'm done here.")
             node = "finished"
             break
+    slow_print("You are in your bedroom. The time is 6PM. Your strict parents have snatched all of your candy from you... but now you can get LOADS without being stopped!!", 0.05)
+    for gap in range(3):
+        print(" ")
     print("Options: ")
     print("1-- look outside from your bedroom window")
     print("2-- find a candy bag")
     time.sleep(1)
+    print(" ")
     action = input("What will you do?")
 #actions:
     if action == "1":
         print("Oh! It\'s quite " + weather + " outside.")
         time.sleep(0.5)
-        print("You still need a candy bag!")
+        print(">>>  You still need a candy bag!")
         time.sleep(0.2)
         input("<Press enter to go back>")
     if action == "2":
-        candy_bag_options = ["a brown sock", "a pumpkin-shaped bucket", "a large pillowcase", "a plastic shopping bag"]
-        candy_bag = random.choice(candy_bag_options)
-        time_spent = random.choice(time_range)
-        slow_print("You search for... " + str(time_spent) + " seconds, and find... " + candy_bag + ".", 0.05)
-        print(" ")
+        while candy_bag_and_time_selected == "false":
+            candy_bag_options = ["a brown sock", "a pumpkin-shaped bucket", "a large pillowcase", "a plastic shopping bag"]
+            candy_bag_random = random.choice(candy_bag_options)
+            time_spent_random = random.choice(time_range)
+            slow_print("You search for... " + str(time_spent_random) + " seconds, and find... " + candy_bag_random + ".", 0.05)
+            candy_bag_selected = "true"
+            time_spent_selected = "true"
+            print(" ")
+        if candy_bag_selected == "true" and time_spent_seleced == "true":
+            candy_bag = candy_random
+            time_spent = time_spent_random
+            print("You have already found your candy bag!!")
+            time.sleep(0.3)
         input("<Press enter to continue>")
         node = "complete"
+        
     if action not in ["1", "2", "One", "one", "Two", "two"]:
         print("Please choose what you will do next! (Type '1' or '2')")
 while node == "finished":
