@@ -142,14 +142,17 @@ for gap in range(3):
 #variables:
 weather_options = ["rainy", "stormy", "windy" ]
 weather = random.choice(weather_options)
-location = "home"
+stage = 1
 time_range = range(5, 400)
 node = "incomplete"
 candy_bag_and_time_selected = "false"
 
+
+
+
 #storyline 1:
-while location == "home":
-    if node == "complete":
+while stage == 1:
+    if node == "finished":
         time.sleep(0.2)
         print("You are able to continue to the next stage. You can still go back and explore the other options!")
         return_to_node = input("<Press enter when ready to move on. Or, type   Q   to go back.>")
@@ -158,10 +161,22 @@ while location == "home":
             if node == "incomplete":
                 continue
         else:
-            print("I'm done here.")
+            for gap in range(2):
+                print(" ")
+            print("─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧")
+            print(name + " [to self] >>>  I\'m done here.")
+            print("─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧")
+            for gap in range(2):
+                print(" ")
             node = "finished"
             break
-    slow_print("You are in your bedroom. The time is 6PM. Your strict parents have snatched all of your candy from you... but now you can get LOADS without being stopped!!", 0.05)
+    for gap in range(2):
+        print(" ")
+    slow_print('''You are in your bedroom. The time is 6 PM. 
+    You have been grounded for the rest of the month... 
+    but today is Halloween...
+    the last day of of the month. 
+    You are DETERMINED to sneak out tonight.''', 0.05)
     for gap in range(3):
         print(" ")
     print("Options: ")
@@ -174,7 +189,7 @@ while location == "home":
     if action == "1":
         print("Oh! It\'s quite " + weather + " outside.")
         time.sleep(0.5)
-        print(">>>  You still need a candy bag!")
+        print("Get your candy bag!")
         time.sleep(0.2)
         input("<Press enter to go back>")
     if action == "2":
@@ -182,31 +197,166 @@ while location == "home":
             candy_bag_options = ["a brown sock", "a pumpkin-shaped bucket", "a large pillowcase", "a plastic shopping bag"]
             candy_bag_random = random.choice(candy_bag_options)
             time_spent_random = random.choice(time_range)
+            candy_bag_and_time_selected = "true"
             slow_print("You search for... " + str(time_spent_random) + " seconds, and find... " + candy_bag_random + ".", 0.05)
-            candy_bag_selected = "true"
-            time_spent_selected = "true"
             print(" ")
-        if candy_bag_selected == "true" and time_spent_seleced == "true":
-            candy_bag = candy_random
+        if candy_bag_and_time_selected == "true":
+            candy_bag = candy_bag_random
             time_spent = time_spent_random
-            print("You have already found your candy bag!!")
+            print("You have a candy bag!!")
             time.sleep(0.3)
         input("<Press enter to continue>")
-        node = "complete"
+        node = "finished"
         
     if action not in ["1", "2", "One", "one", "Two", "two"]:
         print("Please choose what you will do next! (Type '1' or '2')")
 while node == "finished":
-    slow_print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹", 0.3)
-    slow_print("Time passes... <moving on to stage 2>", 0.2)
-    slow_print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹", 0.3)
+    for gap in range(2):
+        print(" ")
+    slow_print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹  ", 0.03)
+    slow_print("Time passes... <moving on to stage 2>", 0.01)
+    slow_print("  ⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹", 0.03)
     time.sleep(1)
     break
     skip_anim = input("<Press enter to skip the animation. Press Q to dismiss this message>")
     if skip_anim == "Q":
-        print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹")
+        stage == 2
+        slow_print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹  ", 0.03)
         print("Time passes... <moving on to stage 2>", 0.2)
-        print("⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹")
+        slow_print("  ⊹₊˚‧︵‿₊⊱·✶·⊰₊‿︵‧˚₊⊹", 0.03)
         break
-        
 
+
+#==========================================================================================
+node = "finished"
+stage = 2
+#==========================================================================================
+for gap in range(2):
+    print(" ")
+time.sleep(1.5)
+
+#map opportunity:
+while node == "finished":
+    time.sleep(1)
+    map_view = input("Would you like to see a map of the property? (y/n)  ")
+    for gap in range(3):
+        print(" ")
+    if map_view == "y":
+        slow_print("         ===MAP OF YOUR HOUSE===", 0.01)
+        print(" ")
+        print('''    (Your room)         (Back yard)
+               ______________________________________
+              |        |          |                  |             |  |  
+              |        |          |                  |             |  |
+              |        |          |            |     |             |  |
+              |_____   |          |            |     |             |  |    
+              |                   |            |_   _|     <-- Front door
+              |________________|      _________|                   |  |
+                            |               |                      |  |
+                            |               |                      |  |
+                            |               |   <-- Garage         |  |
+                            |_______________|                      |  |
+                               (Front yard)                        |  |
+                                                                   |  |
+                                                                   |  |
+                                                                   |  |
+                                                                   |  |
+                               (Sidewalk)                          |  |
+___________________________________________________________________|  |
+______________________________________________________________________|''')
+        for gap in range(3):
+            print(" ")
+        next_stage = input("<Press enter to continue>")
+        break
+    if map_view == "n":
+        slow_print("<You skipped viewing the map>", 0.02)
+        print(" ")
+        next_stage = input("<Press   Q   to continue to Stage 2>")
+        if next_stage in ["Q", "q"]:
+            break
+        else:
+            for gap in range(2):
+                print(" ")
+        time.sleep(0.2)
+        print("<Please provide a valid input>")
+        for gap in range(2):
+            print(" ")
+            continue
+
+if next_stage in ["Q", "q"]:
+            stage = 2
+
+#stage 2:
+if stage == 2:
+    while stage == 2:
+        for gap in range(5):
+            print(" ")
+        if node == "finished":
+            break
+        if costume == "bear":
+            stealth = 70
+        if costume == "duck":
+            stealth = 40
+        if costume == "mage":
+            stealth = 50
+        slow_print("<The " + weather + " weather is over.>  Your mom has yet to come back from work, and your dad is raking up fallen leaves by himself, in the front yard.", 0.01)
+        time.sleep(0.2)
+        print("You want to sneak out to go trick-or-treating.")
+        for gap in range(3):
+            print(" ")
+        time.sleep(0.2)
+        print("Options:  ")
+        print("1-- Leave through the window")
+        print("2-- Do dad's yardwork for him and then sneak out")
+        print("3-- Say you\'re going to drop off some textbooks at the local library")
+        for gap in range(3):
+            print(" ")
+        action = input("What will you do?  ")
+#options:
+        if action == "1":
+            for gap in range(2):
+                print(" ")
+            print("It\'s still " + weather + " outside.")
+            if stealth <= 45:
+                for gap in range(2):
+                    print(" ")
+                slow_print("Unfortunately, you are not stealthy enough to get past Dad.", 0.1)
+                node = incomplete
+                print("<Please pick another option>")
+                continue
+            if stealth >= 45:
+                for gap in range(2):
+                    print(" ")
+                slow_print("You open the window and make quick work of exiting the house.", 0.1)
+                print("Well done!")
+                time.sleep(0.01)
+                slow_print("And now, you're slinking through the backyard.")
+                print("Lucky for you, there\'s one mighty-tall \'ol oak tree to shield you from Dad\'s view.")
+                node = "finished"
+                continue
+        if action == "2":
+            for gap in range(2):
+                print(" ")
+            print("─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧")
+            print(name + " >>>  'Hey, Dad. I\'m sorry for cheating on my history test. Here, let me take care of that.'")
+            print("Dad [in a rich, wise voice] >>>  'Oh, child. Thank you.'")
+            print("─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧")
+            for gap in range(2):
+                print(" ")
+            node = "finished"
+            continue
+        if action == "3":
+            for gap in range(2):
+                print(" ")
+            print(" ")
+            slow_print("You snatch a pen from your older sibling\'s desk, ")
+            print(" ")
+            time.sleep(0.1)
+            print("─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧")
+            print(name + " [writing a note] >>>  Dear parants: I am going to drop off a few school textbooks that are due at 7:30 PM today. I\'ll stay safe! Don\'t be mad, please.")
+            print("─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧ ─── ✦ ─── ☾ ─── ✦ ─── ✧")
+            time.sleep(0.1)
+            print("You pin the note to the fridge using a magnet in the shape of a cartoon ghost.")
+            node = "finished"
+            continue
+        
