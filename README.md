@@ -1,4 +1,7 @@
-# Terra-W2--turtle-attempt-
+# W2-Terra-Halloween-Text-based-Interactive-Storygame
+<img width="489" height="492" alt="ss 5" src="https://github.com/user-attachments/assets/520ad262-8e32-4a27-9d52-3794be7c7acb" />
+<img width="295" height="459" alt="ss 4" src="https://github.com/user-attachments/assets/6e6f9187-8638-412c-aba7-f49cc72fc1cf" />
+<img width="321" height="493" alt="ss 3" src="https://github.com/user-attachments/assets/3734e923-26da-474d-82e8-b207eac94262" />
 
 Description:
 Don't you love Halloween? Come over here and get a little nostalgic! I'll even toss in a cool-looking dark-mode skin for the terminal of the text-based, interactive story game. (Sorry, sorry. I know that this game was shipped one day shy of THE day... but Halloween can live on, no? So come on and try it out!) The prompts are straightforward for convenience. They were designed to be self-explanatory. This is a WIP, so we so far only have aesthetic characters for the visual pleasure/elements. Enjoy!!
