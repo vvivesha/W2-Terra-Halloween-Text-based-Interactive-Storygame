@@ -235,56 +235,7 @@ for gap in range(2):
     print(" ")
 time.sleep(1.5)
 
-#map opportunity:
-while node == "finished":
-    time.sleep(1)
-    map_view = input("Would you like to see a map of the property? (y/n)  ")
-    for gap in range(3):
-        print(" ")
-    if map_view == "y":
-        slow_print("         ===MAP OF YOUR HOUSE===", 0.01)
-        print(" ")
-        print('''    (Your room)         (Back yard)
-               ______________________________________
-              |        |          |                  |             |  |  
-              |        |          |                  |             |  |
-              |        |          |            |     |             |  |
-              |_____   |          |            |     |             |  |    
-              |                   |            |_   _|     <-- Front door
-              |________________|      _________|                   |  |
-                            |               |                      |  |
-                            |               |                      |  |
-                            |               |   <-- Garage         |  |
-                            |_______________|                      |  |
-                               (Front yard)                        |  |
-                                                                   |  |
-                                                                   |  |
-                                                                   |  |
-                                                                   |  |
-                               (Sidewalk)                          |  |
-___________________________________________________________________|  |
-______________________________________________________________________|''')
-        for gap in range(3):
-            print(" ")
-        next_stage = input("<Press enter to continue>")
-        break
-    if map_view == "n":
-        slow_print("<You skipped viewing the map>", 0.02)
-        print(" ")
-        next_stage = input("<Press   Q   to continue to Stage 2>")
-        if next_stage in ["Q", "q"]:
-            break
-        else:
-            for gap in range(2):
-                print(" ")
-        time.sleep(0.2)
-        print("<Please provide a valid input>")
-        for gap in range(2):
-            print(" ")
-            continue
 
-if next_stage in ["Q", "q"]:
-            stage = 2
 
 #stage 2:
 if stage == 2:
@@ -360,3 +311,60 @@ if stage == 2:
             node = "finished"
             continue
         
+
+#moved from in between stage 1 and 2.
+next_stage = "n"
+
+        #map opportunity:
+while node == "finished":
+    if next_stage == "y":
+        break
+    time.sleep(1)
+    map_view = input("Would you like to see a map of the property? (y/n)  ")
+    for gap in range(3):
+        print(" ")
+    if map_view == "y":
+        slow_print("         ===MAP OF YOUR HOUSE===", 0.01)
+        print(" ")
+        print('''    (Your room)         (Back yard)
+               ______________________________________
+              |        |          |                  |             |  |  
+              |        |          |                  |             |  |
+              |        |          |            |     |             |  |
+              |_____   |          |            |     |             |  |    
+              |                   |            |_   _|     <-- Front door
+              |________________|      _________|                   |  |
+                            |               |                      |  |
+                            |               |                      |  |
+                            |               |   <-- Garage         |  |
+                            |_______________|                      |  |
+                               (Front yard)                        |  |
+                                                                   |  |
+                                                                   |  |
+                                                                   |  |
+                                                                   |  |
+                               (Sidewalk)                          |  |
+___________________________________________________________________|  |
+______________________________________________________________________|''')
+        for gap in range(3):
+            print(" ")
+        next_stage = input("<Press enter to continue>")
+        break
+    if map_view == "n":
+        slow_print("<You skipped viewing the map>", 0.02)
+        print(" ")
+        next_stage = input("<Press   Q   to continue to Stage 2>")
+        if next_stage in ["Q", "q"]:
+            next_stage = "yes"
+            continue
+        else:
+            for gap in range(2):
+                print(" ")
+        time.sleep(0.2)
+        print("<Please provide a valid input>")
+        for gap in range(2):
+            print(" ")
+            continue
+
+if next_stage in ["Q", "q"]:
+            stage = 2
